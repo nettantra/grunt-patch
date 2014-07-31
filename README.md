@@ -1,4 +1,4 @@
-# grunt-patch
+# grunt-patch [![Build Status](https://travis-ci.org/nettantra/grunt-patch.svg?branch=master)](https://travis-ci.org/nettantra/grunt-patch)
 
 > Grunt Patch is a grunt plugin which can be used to patch files using grunt.
 
@@ -104,6 +104,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2014-07-31   v0.1.2   Added Travis CI to README.
  * 2014-07-31   v0.1.1   Updated the README file with Release History.
  * 2014-07-31   v0.1.0   First release of grunt-patch.
 
