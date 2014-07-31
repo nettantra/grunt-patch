@@ -37,11 +37,11 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.patch
 Type: `String`
 Default value: `false`
 
-This is a string value which can either be the path of a patch file or the patch string itself. This is a required option
+This is a string value which can either be the path of a patch file or the patch string itself. This is a required option.
 
 ### Usage Examples
 
@@ -110,8 +110,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- * 2014-07-31	v0.1.4	Updates to README.
- * 2014-07-31	v0.1.3	Updates to README.
+ * 2014-07-31	v0.1.5	Updates to README.
  * 2014-07-31	v0.1.2	Added Travis CI to README.
  * 2014-07-31	v0.1.1	Updated the README file with Release History.
  * 2014-07-31	v0.1.0	First release of grunt-patch.
