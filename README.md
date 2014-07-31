@@ -110,11 +110,12 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- * 2014-07-31   v0.1.3   Updates to README.
- * 2014-07-31   v0.1.2   Added Travis CI to README.
- * 2014-07-31   v0.1.1   Updated the README file with Release History.
- * 2014-07-31   v0.1.0   First release of grunt-patch.
-
+ * 2014-07-31	v0.1.4	Updates to README.
+ * 2014-07-31	v0.1.3	Updates to README.
+ * 2014-07-31	v0.1.2	Added Travis CI to README.
+ * 2014-07-31	v0.1.1	Updated the README file with Release History.
+ * 2014-07-31	v0.1.0	First release of grunt-patch.
 
 Copyright (c) [NetTantra Technologies](http://www.nettantra.com/)
+
 ---
