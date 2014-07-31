@@ -58,7 +58,7 @@ module.exports = function(grunt) {
       grunt.file.write(f.dest, src);
     
       // Print a success message.
-      grunt.log.writeln('File "' + f.src + '" patched successfully to "' + f.dest + '" created.');
+      grunt.log.writeln('File "' + f.src + '" was patched successfully. Output file: "' + f.dest + '".');
     });
   });
 

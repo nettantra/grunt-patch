@@ -1,7 +1,7 @@
 {
   "name": "grunt-patch",
   "description": "Grunt Plugin to patch files.",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "homepage": "https://github.com/nettantra/grunt-patch",
   "author": {
     "name": "NetTantra Technologies",
