@@ -1,6 +1,6 @@
 # grunt-patch
 
-> Grunt Plugin to patch files.
+> Grunt Patch is a grunt plugin which can be used to patch files using grunt.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
