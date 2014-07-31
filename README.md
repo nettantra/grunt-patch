@@ -39,14 +39,14 @@ grunt.initConfig({
 
 #### options.separator
 Type: `String`
-Default value: `',  '`
+Default value: `false`
 
-This is a string value which can either be the path of a patch file or the patch string itself.
+This is a string value which can either be the path of a patch file or the patch string itself. This is a required option
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the default options are used to patch an input file named `input.default` with `default.patch` to output a patched file named `output.default.patched`.
 
 ```js
 grunt.initConfig({
@@ -62,7 +62,7 @@ grunt.initConfig({
 ```
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+In this example, the custom options are used to patch an input file named `input.custom` with the string mentioned in `patch` to output a patched file named `output.custom.patched`.
 
 ```js
 grunt.initConfig({
