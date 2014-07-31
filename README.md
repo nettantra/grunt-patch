@@ -104,6 +104,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2014-07-31   v0.1.1   Updated the README file with Release History.
  * 2014-07-31   v0.1.0   First release of grunt-patch.
 
 ---
