@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "homepage": "https://github.com/nettantra/grunt-patch",
   "author": {
-    "name": "nettantra",
+    "name": "NetTantra Technologies",
     "email": "support@nettantra.com",
     "url": "http://www.nettantra.com"
   },
@@ -38,5 +38,8 @@
   },
   "keywords": [
     "gruntplugin"
-  ]
+  ],
+  "dependencies": {
+    "diff": "^1.0.8"
+  }
 }

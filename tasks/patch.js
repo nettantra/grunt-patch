@@ -2,48 +2,59 @@
  * grunt-patch
  * https://github.com/nettantra/grunt-patch
  *
- * Copyright (c) 2014 nettantra
+ * Copyright (c) 2014 NetTantra Technologies
  * Licensed under the MIT license.
+ * https://github.com/nettantra/grunt-patch/blob/master/LICENSE-MIT
  */
 
-'use strict';
-
 module.exports = function(grunt) {
+  'use strict';
 
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
+  var jsdiff = require('diff');
+  var fs = require('fs');
 
   grunt.registerMultiTask('patch', 'Grunt Plugin to patch files.', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
+      patch: false
     });
-
-    // Iterate over all specified file groups.
+    
+    var diffString = options.patch;
+    
+    if (!options.patch) {
+      grunt.log.error('The option `patch` must either be a patch string or path to a patch file.');
+      return false;
+    }
+    
+    if (grunt.file.exists(options.patch)) {
+      var patchFileStats = fs.statSync(options.patch);
+      if (patchFileStats.isDirectory()) {
+        grunt.log.error('The location `'+options.patch+'` is not a valid file.');
+        return false;
+      }
+      diffString = grunt.file.read(options.patch);
+    }
+    
     this.files.forEach(function(f) {
-      // Concat specified files.
+      var srcCount = 0;
       var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
+        srcCount++;
+        if (srcCount > 1) {
+          grunt.log.warn('Only the first file in the source is accepted as input. Ignoring "'+filepath+'".');
           return false;
         } else {
           return true;
         }
       }).map(function(filepath) {
         // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
-
-      // Handle options.
-      src += options.punctuation;
-
+        var fileContents = grunt.file.read(filepath);
+        return jsdiff.applyPatch(fileContents, diffString);
+      });
+      
       // Write the destination file.
       grunt.file.write(f.dest, src);
-
+    
       // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
+      grunt.log.writeln('File "' + f.src + '" patched successfully to "' + f.dest + '" created.');
     });
   });
 
