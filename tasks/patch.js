@@ -50,6 +50,10 @@ module.exports = function(grunt) {
         return jsdiff.applyPatch(fileContents, diffString);
       });
       
+      if (!src || !src[0]) {
+        grunt.log.warn('Patch failed. Please check your patch and its corresponding version.');
+        return false;
+      }
       // Write the destination file.
       grunt.file.write(f.dest, src);
     

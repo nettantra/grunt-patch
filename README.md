@@ -110,6 +110,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2014-07-31	v0.1.6	Added exceptions to fail patch.
  * 2014-07-31	v0.1.5	Updates to README.
  * 2014-07-31	v0.1.2	Added Travis CI to README.
  * 2014-07-31	v0.1.1	Updated the README file with Release History.
