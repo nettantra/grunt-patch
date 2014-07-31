@@ -26,11 +26,11 @@ In your project's Gruntfile, add a section named `patch` to the data object pass
 grunt.initConfig({
   patch: {
     options: {
-      // Task-specific options go here.
+      patch: 'test/fixtures/default.patch'
     },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+    files: {
+      'tmp/output.default.patched': 'test/fixtures/input.default'
+    }
   },
 });
 ```
@@ -41,13 +41,7 @@ grunt.initConfig({
 Type: `String`
 Default value: `',  '`
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+This is a string value which can either be the path of a patch file or the patch string itself.
 
 ### Usage Examples
 
@@ -57,10 +51,12 @@ In this example, the default options are used to do something with whatever. So 
 ```js
 grunt.initConfig({
   patch: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    options: {
+      patch: 'test/fixtures/default.patch'
     },
+    files: {
+      'tmp/output.default.patched': 'test/fixtures/input.default'
+    }
   },
 });
 ```
@@ -71,14 +67,35 @@ In this example, custom options are used to do something else with whatever else
 ```js
 grunt.initConfig({
   patch: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
+    default_options: {
+      options: {
+        patch: 'test/fixtures/default.patch'
+      },
+      files: {
+        'tmp/output.default.patched': 'test/fixtures/input.default'
+      }
     },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    custom_options: {
+      options: {
+        patch: "Index: input.custom\n" + 
+               "===================================================================\n" + 
+               "--- input.custom\n" + 
+               "+++ input.custom\n" + 
+               "@@ -1,7 +1,7 @@\n" + 
+               " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.\n" + 
+               " \n" + 
+               " Veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.\n" + 
+               " \n" + 
+               "+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?\n" + 
+               "-Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?\n" + 
+               " \n" + 
+               " Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n"
+      },
+      files: {
+        'tmp/output.custom.patched': 'test/fixtures/input.custom'
+      }
+    }
+  }
 });
 ```
 
