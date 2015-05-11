@@ -25,11 +25,13 @@ In your project's Gruntfile, add a section named `patch` to the data object pass
 ```js
 grunt.initConfig({
   patch: {
-    options: {
-      patch: 'test/fixtures/default.patch'
-    },
-    files: {
-      'tmp/output.default.patched': 'test/fixtures/input.default'
+    myPatchTask: {
+      options: {
+        patch: 'test/fixtures/default.patch'
+      },
+      files: {
+        'tmp/output.default.patched': 'test/fixtures/input.default'
+      }
     }
   },
 });
