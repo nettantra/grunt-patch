@@ -51,7 +51,7 @@ module.exports = function(grunt) {
       });
       
       if (!src || !src[0]) {
-        grunt.fail.warning('Patch failed. Please check your patch and its corresponding version.');
+        grunt.fail.warn('Patch failed. Please check your patch and its corresponding version.');
         return false;
       }
       // Write the destination file.
